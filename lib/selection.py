@@ -1,25 +1,27 @@
 import random
 from copy import deepcopy
 
-def tournament_selection(population: list, tournament_size: int, maximization: bool = True):
-    """
-    Selects a single individual from the population using tournament selection.
-    
-    Args:
-        population (list): List of Solution objects.
-        tournament_size (int): Number of individuals in the tournament.
-        maximization (bool): True if higher fitness is better, False for minimization.
-        
-    Returns:
-        Solution: A deepcopy of the selected individual.
-    """
-    # Randomly sample tournament_size individuals
-    tournament = random.sample(population, tournament_size)
-    
-    # Select winner based on maximization or minimization
+
+
+def tournament_selection(population, maximization, k=3):
+    # Randomly select k individuals
+    tournament = random.sample(population, k)
+    # Choose the best (max or min) in the tournament
     if maximization:
-        winner = max(tournament, key=lambda ind: ind.fitness())
+        return max(tournament, key=lambda ind: ind.fitness())
     else:
-        winner = min(tournament, key=lambda ind: ind.fitness())
-        
-    return deepcopy(winner)
+        return min(tournament, key=lambda ind: ind.fitness())
+    
+
+def ranking_selection(population, maximization):
+    # Sort individuals by fitness
+    sorted_pop = sorted(population, key=lambda ind: ind.fitness(), reverse=maximization)
+    n = len(sorted_pop)
+    # Assign probabilities: rank 1 gets highest probability
+    probs = [2*(i+1)/(n*(n+1)) for i in range(n)]  # Linear ranking
+    # Select one individual based on these probabilities
+    selected = random.choices(sorted_pop, weights=probs, k=1)[0]
+    return selected
+
+
+

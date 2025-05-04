@@ -27,9 +27,9 @@ def genetic_algorithm(
             print(f'-------------- Generation: {gen} --------------')
 
         new_population = []
-
+        
         if elitism:
-            new_population.append(deepcopy(get_best_ind(initial_population, maximization)))
+            new_population.append(deepcopy(get_best_ind(population, maximization)))
         
         while len(new_population) < len(population):
             first_ind = selection_algorithm(population, maximization)
@@ -68,5 +68,3 @@ def genetic_algorithm(
             print(f'Final best individual in generation: {get_best_ind(population, maximization)}')
 
     return get_best_ind(population, maximization)
-
-
