@@ -1,6 +1,6 @@
 from lib.genetic_algorithm import genetic_algorithm
 from lib.crossover import pmx_crossover, order_crossover
-from lib.mutation import swap_mutation, inversion_mutation, insertion_mutation
+from lib.mutation import swap_mutation, inversion_mutation, insertion_mutation, prime_slot_mutation, slot_shuffle_mutation
 from lib.fitness import fitness
 
 
@@ -45,6 +45,10 @@ class Solution:
             mutant = inversion_mutation(self.representation)
         elif method == 'insertion':
             mutant = insertion_mutation(self.representation)
+        elif method == 'prime':
+            mutant = prime_slot_mutation(self.representation)
+        elif method == 'shuffle':
+            mutant = slot_shuffle_mutation(self.representation)
         else:
             raise ValueError("Unknown mutation method")
         return Solution(mutant, self.artists, self.conflict_matrix,
