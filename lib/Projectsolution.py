@@ -46,9 +46,9 @@ class Solution:
         elif method == 'insertion':
             mutant = insertion_mutation(self.representation)
         elif method == 'prime':
-            mutant = prime_slot_mutation(self.representation)
+            mutant = prime_slot_mutation(self.representation.copy(), 5, 7)
         elif method == 'shuffle':
-            mutant = slot_shuffle_mutation(self.representation)
+            mutant = slot_shuffle_mutation(self.representation.copy(), 5, 7)
         else:
             raise ValueError("Unknown mutation method")
         return Solution(mutant, self.artists, self.conflict_matrix,
