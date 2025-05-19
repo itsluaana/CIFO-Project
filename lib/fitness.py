@@ -17,7 +17,7 @@ def compute_prime_slot_popularity(solution, artists):
 
 # Measure genre diversity across slots
 def compute_genre_diversity(solution, artists):
-    total_unique = 0
+    total_normalized_diversity = 0
     # For each time slot (across all stages)
     for slot in range(NUM_SLOTS):
         genres = set()
@@ -25,10 +25,11 @@ def compute_genre_diversity(solution, artists):
             idx = stage * NUM_SLOTS + slot
             # Add the genre code of the artist at that stage/slot
             genres.add(get_artist_by_id(solution[idx], artists).genre_code)
-        # Add the number of unique genres in this slot
-        total_unique += len(genres)
-    # Return the average genre diversity across all slots
-    return total_unique / NUM_SLOTS
+        # Normalize by the possible max of unique genres by slot
+        max_possible = min(len(set(a.genre_code for a in artists)), NUM_STAGES)
+        total_normalized_diversity += len(genres) / max_possible
+    # Average normalized diversity by slot
+    return total_normalized_diversity / NUM_SLOTS
 
 # Compute the conflict penalty using the conflict matrix
 def compute_conflict_penalty(solution, conflict_matrix):

@@ -88,8 +88,12 @@ def genetic_algorithm(
         if verbose:
             print(f'Final best individual in generation: {get_best_ind(population, maximization)}')
 
-    # Return the best individual and the fitness history if requested
-    if track_history:
-        return get_best_ind(population, maximization), best_fitness_over_time
-    else:
-        return get_best_ind(population, maximization)
+    # Store best individual
+    best_individual = get_best_ind(population, maximization)
+
+    # Return both best solution and fitness history (or empty list if not tracked)
+    return best_individual, (best_fitness_over_time if track_history else [])
+
+    
+
+
