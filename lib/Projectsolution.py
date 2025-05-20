@@ -3,6 +3,7 @@ from lib.crossover import pmx_crossover, order_crossover
 from lib.mutation import swap_mutation, inversion_mutation, insertion_mutation, prime_slot_mutation, slot_shuffle_mutation
 from lib.fitness import fitness
 
+
 class Solution:
     def __init__(self, representation, artists=None, conflict_matrix=None, 
                  crossover_method='pmx', mutation_method='swap'):
@@ -70,6 +71,20 @@ class Solution:
         # Return the mutated solution.
         return Solution(mutant, self.artists, self.conflict_matrix,
                         self.crossover_method, self.mutation_method)
+    
+    # For simulated Annealing Algorithm
+    def get_random_neighbor(self):
+        # Always apply mutation to create a neighbor
+        return self.mutation(mut_prob=1.0)
+    
+    # For Hill Climbing Algorithm
+    def get_neighbors(self):
+        neighbors = []
+        for _ in range(10):
+            neighbor = self.mutation(mut_prob=1.0)
+            neighbors.append(neighbor)
+        return neighbors
+
 
     def __repr__(self):
         # Return a string representation of the solution.
