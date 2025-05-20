@@ -33,6 +33,36 @@ Each solution must comply with strict constraints: all artists must be assigned 
 
 The dataset includes artist information and a conflict matrix, and solutions are evolved under these conditions to find high quality festival arrangements.
 
+### 📁 Project Structure Overview
+
+The main folder contains the core components of the Music Festival Lineup Optimization project:
+
+- **`data/`**  
+  Contains the input datasets:
+  - `artists(in).csv` – Artist details including name, genre, and popularity.  
+  - `conflicts(in).csv` – Matrix capturing fanbase conflict scores between artists.
+
+- **`documents/`**  
+  Reference materials for the project:
+  - `CIFO_2024_2025_Project.pdf` – Official project description.
+
+- **`lib/`**  
+  Modular Python implementations of the core algorithms and utilities:
+  - `Projectsolution.py`: Defines the `Solution` class representing a festival lineup.
+  - `fitness.py`: Calculates the multi-objective fitness score (popularity, diversity, conflicts).
+  - `crossover.py`, `mutation.py`, `selection.py`: Genetic Algorithm operators.
+  - `genetic_algorithm.py`: Main loop for GA execution.
+  - `hill_climbing.py`, `simulated_annealing.py`: Local search optimizers for comparison.
+  - `__init__.py`: Makes `lib` a Python package.
+
+- **`src/`**  
+  - `PROJECT.ipynb`: Main Jupyter Notebook with experimentation, analysis, and results.  
+  - `ga_fitness_results.csv`: Stores GA performance results.
+
+- **`requirements.txt`**  
+  List of Python packages required to run the project environment.
+
+
 ---
 
 ### Grid Search Experiment
