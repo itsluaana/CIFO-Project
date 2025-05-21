@@ -35,7 +35,7 @@ The dataset includes artist information and a conflict matrix, and solutions are
 
 ### 📁 Project Structure Overview
 
-The main folder contains the core components of the Music Festival Lineup Optimization project:
+The components of the Music Festival Lineup Optimization project:
 
 - **`data/`**  
   Contains the input datasets:
