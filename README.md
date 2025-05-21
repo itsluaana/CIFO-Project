@@ -58,6 +58,7 @@ The components of the Music Festival Lineup Optimization project:
 - **`src/`**  
   - `PROJECT.ipynb`: Main Jupyter Notebook with experimentation, analysis, and results.  
   - `ga_fitness_results.csv`: Stores GA performance results.
+  - `views.ipynb`:  Notebook containing schematic diagrams for genetic algorithm operators (crossover and mutation).
 
 - **`requirements.txt`**  
   List of Python packages required to run the project environment.
