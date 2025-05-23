@@ -90,6 +90,3 @@ We conducted an extensive grid search to evaluate different combinations of GA o
 
 The grid search helps us understand how different GA components impact solution quality and convergence speed.
 
-### Comparative Evaluation
-
-To further validate the effectiveness of our bestcperforming Genetic Algorithm configuration, we benchmark it against two classic local search algorithms: **Hill Climbing** and **Simulated Annealing**. 
