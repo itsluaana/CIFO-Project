@@ -52,7 +52,6 @@ The components of the Music Festival Lineup Optimization project:
   - `fitness.py`: Calculates the multi-objective fitness score (popularity, diversity, conflicts).
   - `crossover.py`, `mutation.py`, `selection.py`: Genetic Algorithm operators.
   - `genetic_algorithm.py`: Main loop for GA execution.
-  - `hill_climbing.py`, `simulated_annealing.py`: Local search optimizers for comparison.
   - `__init__.py`: Makes `lib` a Python package.
 
 - **`src/`**  
